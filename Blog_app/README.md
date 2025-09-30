@@ -9,7 +9,7 @@ This project was created with Django and uses SQLite for local development. It c
 
 Tech stack
 - Python (3.11+ recommended)
-- Django 5.1.x (project header indicates 5.1.7)
+- Django 5.1.x (this project uses Django 5.1.7)
 - SQLite (default DB for this repo)
 - Pillow (required for ImageField handling)
 
