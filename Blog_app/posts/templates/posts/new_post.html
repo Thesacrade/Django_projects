@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block title %}
+    Create a new post
+{% endblock title %}
+
+{% block content %}    
+   <main>
+    <article>
+        <form action="{% url 'new-post'%}" method='post' class='form-with-validation' enctype="multipart/form-data">
+            {% csrf_token %}
+            {{post.as_p}}
+            <button class="form-submit">Submit</button>
+        </form>
+    </article>
+   </main>       
+{% endblock content %}

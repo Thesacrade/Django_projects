@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block title %}
+    Posts List
+{% endblock title %}
+
+{% block content %}
+    <h1>Posts List</h1>    
+    {% if posts %}
+    {% for post in posts  %}
+    <article>
+        <h2>  <a href="{% url 'post' slug=post.slug %}">{{post.title}}</a></h2>
+        <p class='date'>{{post.date}} by {{post.author}}</p>
+        <p>{{post.body|truncatewords:7}}</p>
+
+        <img class='banner' src="{{post.banner.url}}" alt="{{post.title}}" style="max-width: 300px;" >
+    </article>
+    
+    {% endfor %}
+    {% else %}
+    <p>No Posts yet</p>
+    {% endif %}
+    
+{% endblock content %}

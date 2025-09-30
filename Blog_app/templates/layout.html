@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+        The Sacred Blog
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="/">Home</a> | 
+        <a href="/about">About</a> |
+        <a href="{% url 'posts'%}">Posts</a> |
+        <a href="{% url 'register'%}">Sign up</a> |
+        <a href="{% url 'login'%}">Login</a> |
+        <a href="{% url 'new-post'%}">new post</a> |
+        <form class="logout" action="{% url "logout"%}"  method="post">
+            {% csrf_token %}
+            <button type="submit" class="logout-btn">Log out</button>
+        </form>
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock content %}
+    </main>
+</body>
+</html>

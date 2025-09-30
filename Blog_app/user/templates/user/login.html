@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block title %}
+    User Log in 
+{% endblock title %}
+
+{% block content %}    
+    <h3>User Log in</h3>
+    <form class="form-with-validation" action="/user/login/" method="post">
+        {% csrf_token %}
+        {{form}}
+        <button class="form-submit" >Submit</button>
+        {% if request.GET.next %}
+        <input type="hidden" name="next" value="{{ request.GET.next }}">
+        {% endif %}
+    </form>
+   
+{% endblock content %}
